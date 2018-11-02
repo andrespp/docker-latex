@@ -12,12 +12,24 @@ This image is based on `ubuntu:18.04`.
 Just run an container with a bind mount mapping your LaTeX's working directory to `/latex`, like the examples below.
 
 ```bash
-me@myhost:~/Documents/foo$ docker container run -it --rm  -v $(pwd):/latex andrespp/latex
+me@myhost:~/Documents/foo$ docker container run -it --rm -u $UID:`id -g` -v $(pwd):/latex andrespp/latex
 root@e90968520b4ff:/latex# pdflatex main.tex
 ```
 
 ```bash
-me@myhost:~/Documents/foo$ docker container run -it --rm  -v $(pwd):/latex andrespp/latex pdflatex main.tex
+me@myhost:~/Documents/foo$ docker container run -it --rm -u $UID:`id -g` -v $(pwd):/latex andrespp/latex pdflatex main.tex
+```
+
+# Install
+
+In order to run the container as if the application was installed locally, download the `pdflatex` script to a directory in you `$PATH`:
+
+```
+$ sudo curl -fsSL https://raw.githubusercontent.com/andrespp/docker-latex/master/pdflatex -o /usr/local/bin/pdflatex
+$ sudo chmod +x /usr/local/bin/pdflatex
+$ pdflatex --version
+
+pdfTeX 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian)
 ```
 
 # Environment variables
