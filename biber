@@ -1,0 +1,5 @@
+#!/bin/bash
+#set -x
+
+# Run pdftk container
+docker container run --rm -u $UID:`id -g` -v "$PWD":/latex andrespp/latex biber $@

@@ -26,7 +26,10 @@ In order to run the container as if the application was installed locally, downl
 
 ```
 $ sudo curl -fsSL https://raw.githubusercontent.com/andrespp/docker-latex/master/pdflatex -o /usr/local/bin/pdflatex
+$ sudo curl -fsSL https://raw.githubusercontent.com/andrespp/docker-latex/master/xelatex -o /usr/local/bin/xelatex
+$ sudo curl -fsSL https://raw.githubusercontent.com/andrespp/docker-latex/master/biber -o /usr/local/bin/biber
 $ sudo chmod +x /usr/local/bin/pdflatex
+$ sudo chmod +x /usr/local/bin/biber
 $ pdflatex --version
 
 pdfTeX 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian)
